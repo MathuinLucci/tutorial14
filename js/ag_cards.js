@@ -5,8 +5,8 @@
    Tutorial 14
    Tutorial Case
 
-   Author: 
-   Date:   
+   Author: Matt Parisano
+   Date:   04/15/2025
 
    Filename: ag_cards.js
 
