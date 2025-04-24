@@ -73,14 +73,59 @@ function playDrawPoker() {
 
             //event handler for each card image
             cardImages[i].index = i;
-            cardImages[i]
-            if (e.target.discard !== true) {
-               e.target.discard = true;
-               e.target.
-            }
+            cardImages[i].onclick = function(e) {
+               if (e.target.discard !== true) {
+                  e.target.discard = true;
+                  e.target.src = "../img/ag_cardback.png";
+               } else {
+                  e.target.discard = false;
+                  e.target.src = myHand.cards[e.target.index].cardImage();
+               }
+           };
          }
+
+      } else{
+         alert("reduce the size of your bet");
       }
-   })
+   });
+
+   //enable the deal and bet options when the current hand ends
+   drawButton.addEventListener("click", function() {
+      enableObj(dealButton);
+      enableObj(betSelection);
+      disableObj(drawButton);
+      disableObj(standButton);
+      
+      //Replace the cards selected for discarding
+      for (var i=0; i<cardImages.length;i++){
+         if (cardImages[i].discard){
+            myHand.cards[i].replaceFromDeck(myDeck);
+            cardImages[i].src = myHand.cards[i].cardImage();
+            cardImages[i].discard = false;
+         }
+         cardImages[i].onclick = null;
+      }
+
+      //evaluate the hand drawn by the user
+      handValueText.textContent = myHand.handType();
+      
+      //pay pff the final hand
+      bankBox.value = pokerGame.payout(myHand.handOdds());
+   });
+   
+   standButton.addEventListener("click", function(){
+      enableObj(dealButton);
+      enableObj(betSelection);
+      disableObj(drawButton);
+      disableObj(standButton);
+      
+      //Evaluate the hand dealt to the user
+      handValueText.textContent = myHand.handType();
+      
+      //pay pff the final hand
+      bankBox.value = pokerGame.payout(myHand.handOdds());
+   });
+   
    //Disable poker button
    function disableObj(obj) {
       obj.disableObj = true;
