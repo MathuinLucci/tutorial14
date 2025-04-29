@@ -76,7 +76,7 @@ pokerCard.prototype.replaceFromDeck = function(pokerDeck) {
 function pokerDeck() {
    this.cards = new Array(52);
 
-   var suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
+   var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
    var ranks = ["2", "3", "4", "5", "6",
                 "7", "8", "9", "10",
                 "Jack", "Queen", "King", "Ace"];
@@ -85,7 +85,7 @@ function pokerDeck() {
    for (var i = 0; i < 4; i++) {
       for (var j = 0; j<13; j++) {
       this.cards[cardCount] = new pokerCard(suits[i], ranks[j]);
-      this.cards[cardCount].rankValue= j+2;
+      this.cards[cardCount].rankValue = j+2;
       cardCount++;
       }
    }
@@ -112,7 +112,7 @@ function pokerHand(handLength) {
 }
 
 /* Return the highest rank card in the hand */
-pokerHand.prototype.highCard = function(){
+pokerHand.prototype.highCard = function() {
    return Math.max.call(pokerHand,
          this.cards[0].rankValue,
          this.cards[1].rankValue,
@@ -121,7 +121,7 @@ pokerHand.prototype.highCard = function(){
          this.cards[4].rankValue);
 };
 
-/* Test for the presence of a fluch */
+/* Test for the presence of a flush */
 pokerHand.prototype.hasFlush = function() {
    var firstSuit = this.cards[0].suit;
    return this.cards.every(function(card) {
