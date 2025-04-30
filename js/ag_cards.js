@@ -170,7 +170,7 @@ pokerHand.prototype.hasSets = function() {
 
    for (var cardRank in handSets){
       if (handSets[cardRank] === 4) {sets = "Four of a Kind";}
-      if (handSets[cardRank] ===3) {
+      if (handSets[cardRank] === 3) {
          if (sets === "Pair") {sets = "Full House";}
          else {sets = "Three of a Kind"}
       }
