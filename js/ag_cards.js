@@ -83,7 +83,7 @@ function pokerDeck() {
 
    var cardCount = 0; 
    for (var i = 0; i < 4; i++) {
-      for (var j = 0; j<13; j++) {
+      for (var j = 0; j < 13; j++) {
       this.cards[cardCount] = new pokerCard(suits[i], ranks[j]);
       this.cards[cardCount].rankValue = j+2;
       cardCount++;
@@ -158,7 +158,7 @@ pokerHand.prototype.hasSets = function() {
    //handSets summarizes the duplicates in the hand
    var handSets = {};
    this.cards.forEach(function(card) {
-      if (handSets.hasOwnProperties(card.rankValue)) {
+      if (handSets.hasOwnProperty(card.rankValue)) {
          handSets[card.rankValue]++;
       } else {
          handSets[card.rankValue] = 1;
@@ -172,7 +172,7 @@ pokerHand.prototype.hasSets = function() {
       if (handSets[cardRank] === 4) {sets = "Four of a Kind";}
       if (handSets[cardRank] === 3) {
          if (sets === "Pair") {sets = "Full House";}
-         else {sets = "Three of a Kind"}
+         else {sets = "Three of a Kind";}
       }
       if (handSets[cardRank] === 2) {
          if (sets === "Three of a Kind") {sets = "Full House";}
@@ -196,7 +196,7 @@ pokerHand.prototype.handType = function() {
    else if (this.hasStraight()) {return "Straight";}
    else {
       var sets = this.hasSets();
-      if (sets === "Pair" || sets === "none") {sets = "No Winner"}
+      if (sets === "Pair" || sets === "none") {sets = "No Winner";}
       return sets;
    }
 };

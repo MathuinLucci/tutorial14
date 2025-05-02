@@ -29,11 +29,11 @@ function playDrawPoker() {
    pokerGame.currentBet = 25;
 
    //create a new deck of cards and shuffle it
-   var myDeck = new pokerDeck
+   var myDeck = new pokerDeck();
    myDeck.shuffle();
 
    //create a pokerHand object
-   var myHand = new pokerHand(5)
+   var myHand = new pokerHand(5);
 
    bankBox.value = pokerGame.currentBank;
    betSelection.onchange = function(e) {
@@ -62,13 +62,13 @@ function playDrawPoker() {
 
          //Deal cardds into the poker hand after confirming...
          //...there are at least 10 cards in the deck
-         if (myDeck.cards.length < 10 ) {
+         if (myDeck.cards.length < 10) {
             myDeck = new pokerDeck();
             myDeck.shuffle();
          }
          myDeck.dealTo(myHand);
          //display the card images on the table
-         for (var i=0; 1<cardImages.length; i++) {
+         for (var i = 0; i < cardImages.length; i++) {
             cardImages[i].src = myHand.cards[i].cardImage();
 
             //event handler for each card image
@@ -85,7 +85,7 @@ function playDrawPoker() {
          }
 
       } else{
-         alert("reduce the size of your bet");
+         alert("Reduce the size of your bet");
       }
    });
 
@@ -97,8 +97,8 @@ function playDrawPoker() {
       disableObj(standButton);
       
       //Replace the cards selected for discarding
-      for (var i=0; i<cardImages.length;i++){
-         if (cardImages[i].discard){
+      for (var i = 0; i < cardImages.length; i++) {
+         if (cardImages[i].discard) {
             myHand.cards[i].replaceFromDeck(myDeck);
             cardImages[i].src = myHand.cards[i].cardImage();
             cardImages[i].discard = false;
@@ -113,7 +113,7 @@ function playDrawPoker() {
       bankBox.value = pokerGame.payout(myHand.handOdds());
    });
    
-   standButton.addEventListener("click", function(){
+   standButton.addEventListener("click", function() {
       enableObj(dealButton);
       enableObj(betSelection);
       disableObj(drawButton);
@@ -128,13 +128,13 @@ function playDrawPoker() {
    
    //Disable poker button
    function disableObj(obj) {
-      obj.disableObj = true;
+      obj.disabled = true;
       obj.style.opacity = 0.25;
    }
    
    //enable poker button
    function enableObj(obj) {
-      obj.disableObj = false;
+      obj.disabled = false;
       obj.style.opacity = 1;
    }
 }
