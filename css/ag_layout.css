@@ -26,7 +26,7 @@ body {
    display: flex;
    -webkit-flex-flow: row wrap;
    flex-flow: row wrap;
-   background: url(ag_back2.png) repeat-y top left, rgb(70, 136, 89);
+   background: url(../img/ag_back2.png) repeat-y top left, rgb(70, 136, 89);
 }
 
 /* Header Styles */
@@ -105,8 +105,8 @@ nav#middle ul li a:hover, nav#middle ul li a:active {
 nav#left {
    -webkit-flex: 0 0 339px;
    flex: 0 0 339px;
-   background: url(ag_back1.png) no-repeat top left,
-               url(ag_back2.png) repeat-y;
+   background: url(../img/ag_back1.png) no-repeat top left,
+               url(../img/ag_back2.png) repeat-y;
    padding-top: 270px;
    padding-left: 10px;
    padding-bottom: 30px;
